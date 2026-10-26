@@ -1,37 +1,681 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en-us">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eunseo Jeong | Portfolio</title>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <meta content="Source Themes Academic 4.7.0" name="generator" />
+  <meta content="Eunseo Jeong" name="author" />
+  <meta content="Personal research and engineering portfolio of Eunseo Jeong" name="description" />
+  <link href="./" hreflang="en-us" rel="alternate" />
+  <meta content="#308ce8" name="theme-color" />
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css"
+    integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" rel="stylesheet" />
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css"
+    integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" rel="stylesheet" />
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+    integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" rel="stylesheet" />
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css"
+    integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" rel="stylesheet" />
+  <script async="" crossorigin="anonymous" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A="
+    src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&amp;display=swap"
+    rel="stylesheet" />
+  <link href="css/academic.css" rel="stylesheet" />
+
+
+  <link href="./" rel="canonical" />
+  <meta content="summary" property="twitter:card" />
+
+  <meta content="/" property="og:url" />
+  <meta content="Eunseo Jeong" property="og:title" />
+  <meta content="Personal research and engineering portfolio of Eunseo Jeong" property="og:description" />
+  <meta content="img/map[gravatar:%!s(bool=false) shape:circle]" property="og:image" />
+  <meta content="img/map[gravatar:%!s(bool=false) shape:circle]" property="twitter:image" />
+  <meta content="en-us" property="og:locale" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "url": "/"
+}
+</script>
+  <title>Eunseo Jeong</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 80px auto;
-      padding: 0 24px;
-      line-height: 1.7;
-      color: #222;
+    /* Colors matched to the CV: bittersweet (1.0, 0.44, 0.37), bleudefrance (0.19, 0.55, 0.91) */
+    .ul-papers .resources a {
+      color: #308CE8;
     }
-    h1 { margin-bottom: 4px; }
-    a { color: #2563eb; }
+
+    /* 3mm between entries, as \vspace{3mm} in the CV */
+    #academic-activities .col-lg-12>ul>li,
+    #awards .col-lg-12>ul>li {
+      margin-bottom: 3mm;
+    }
+
+    /* LinkedIn-style experience cards */
+    .exp-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .exp-item {
+      display: flex;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid #e6e6e6;
+    }
+
+    .exp-item:last-child {
+      border-bottom: none;
+    }
+
+    .exp-logo {
+      flex: 0 0 56px;
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      padding: 4px;
+      background: #fff;
+      border: 1px solid #e6e6e6;
+      border-radius: 8px;
+    }
+
+    .exp-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .exp-org {
+      font-weight: 700;
+      font-size: 1.05rem;
+      line-height: 1.3;
+    }
+
+    .exp-loc {
+      color: #6c757d;
+      font-size: 0.85rem;
+    }
+
+    .exp-roles {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 0 0;
+    }
+
+    .exp-role {
+      position: relative;
+      padding-left: 20px;
+      padding-bottom: 8px;
+    }
+
+    .exp-role:last-child {
+      padding-bottom: 0;
+    }
+
+    .exp-role::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: 8px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #308CE8;
+    }
+
+    .exp-roles.multi .exp-role:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 19px;
+      bottom: -6px;
+      width: 1px;
+      background: #ccc;
+    }
+
+    .exp-title {
+      font-weight: 500;
+    }
+
+    .exp-date {
+      color: #6c757d;
+      font-size: 0.85rem;
+    }
+
+    .exp-desc {
+      font-size: 0.9rem;
+      margin-top: 4px;
+      color: #444;
+    }
+
+    /* Profile link buttons */
+    .profile-cv {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      max-width: 184px;
+      margin-top: 20px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: #308CE8;
+      color: #fff;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all .15s;
+    }
+
+    .profile-cv:hover {
+      background: #1f74c9;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .profile-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 12px 0 20px 0;
+    }
+
+    .profile-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #308CE8;
+      border-radius: 50%;
+      color: #308CE8;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: all .15s;
+    }
+
+    .profile-links a:hover {
+      background: #308CE8;
+      color: #fff;
+    }
+
+    /* Publication thumbnails */
+    ul.ul-papers {
+      padding-left: 15px;
+    }
+
+    ul.ul-papers li.pub-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    ul.ul-papers li.pub-item>div {
+      display: block;
+    }
+
+    ul.ul-papers .pub-thumb {
+      flex: 0 0 240px;
+      aspect-ratio: 16 / 9;
+    }
+
+    .cv-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      column-gap: 1em;
+    }
+
+    .cv-row .cv-date {
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    ul.ul-papers .pub-thumb video,
+    ul.ul-papers .pub-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 6px;
+      border: 1px solid #e6e6e6;
+      background: #fff;
+    }
+
+    ul.ul-papers .pub-thumb img.contain {
+      object-fit: contain;
+      padding: 4px;
+    }
+
+    ul.ul-papers li.pub-item .description {
+      flex: 1;
+      min-width: 0;
+    }
+
+    @media (max-width: 767px) {
+      ul.ul-papers li.pub-item {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      ul.ul-papers .pub-thumb {
+        flex: none;
+        width: 100%;
+        max-width: 480px;
+      }
+
+      ul.ul-papers .pub-thumb:empty {
+        display: none;
+      }
+    }
   </style>
 </head>
-<body>
-  <h1>Eunseo Jeong</h1>
-  <p>M.S. in Computer Science, Yonsei University</p>
 
-  <h2>About Me</h2>
-  <p>
-    My interests include Computer Vision,
-    Human-Centered AI, and Multimodal Data Analysis.
-  </p>
+<body data-offset="70" data-spy="scroll" data-target="#navbar-main" id="top">
+  <aside class="search-results" id="search">
+    <div class="container">
+      <section class="search-header">
+        <div class="row no-gutters justify-content-between mb-3">
+          <div class="col-6">
+            <h1>Search</h1>
+          </div>
+          <div class="col-6 col-search-close">
+            <a class="js-search" href="#"><i aria-hidden="true" class="fas fa-times-circle text-muted"></i></a>
+          </div>
+        </div>
+        <div id="search-box">
+          <input autocapitalize="off" autocomplete="off" autocorrect="off" id="search-query" name="q"
+            placeholder="Search..." spellcheck="false" type="search" />
+        </div>
+      </section>
+      <section class="section-search-results">
+        <div id="search-hits">
+        </div>
+      </section>
+    </div>
+  </aside>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container">
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="./">Eunseo Jeong</a>
+      </div>
+      <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+        data-target="#navbar-content" data-toggle="collapse" type="button">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="./">Eunseo Jeong</a>
+      </div>
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+        <ul class="navbar-nav d-md-inline-flex">
+          <li class="nav-item">
+            <a class="nav-link" data-target="#about" href="#about"><span>Home</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-target="#news" href="#news"><span>News</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-target="#activities" href="#activities"><span>Experience</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-target="#publications" href="#publications"><span>Publications</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-target="#academic-activities" href="#academic-activities"><span>Scholarly
+                Activities</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-target="#awards" href="#awards"><span>Honors &amp; Awards</span></a>
+          </li>
+        </ul>
+      </div>
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i aria-hidden="true" class="fas fa-search"></i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <span class="js-widget-page d-none"></span>
+  <section class="home-section wg-about" id="about" style="padding: 30px 0 20px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-4">
+          <div id="profile"><img alt="Profile placeholder" class="avatar avatar-circle" src="img/profile_v1.JPG" />
+            <div class="portrait-title">
+              <h2>Eunseo Jeong</h2>
+              <h3>AI / Computer Vision Researcher</h3>
+              <h3><a href="https://www.yonsei.ac.kr/sc/index.do" rel="noopener" target="_blank">Yonsei University</a>
+              </h3>
+            <!-- TODO: Activate CV after publication -->
+            </div>
+              <!-- <a class="profile-cv" href="cv/Eunseo_Jeong_CV.pdf" target="_blank"><i class="fas fa-file-alt"></i>
+              Curriculum Vitae</a> -->
+            <div class="profile-links"><a aria-label="Email" href="mailto:eunseo8946@gmail.com" title="Email"><i
+                  class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-8"><br />
 
-  <h2>Research</h2>
-  <p>CVPR 2026 PhysHuman Workshop</p>
+          <p>
+            I received my M.S. in Computer Science from
+            <a href="https://www.yonsei.ac.kr/sc/index.do">Yonsei University</a>,
+            where I conducted research at the
+            <a href="https://esports.yonsei.ac.kr/">High-Performance HCI Lab</a>,
+            advised by <b>Prof. Byungjoo Lee</b>.
+            My research focused on understanding human behavior
+            through multimodal data, including motion capture,
+            sEMG, video, and interaction logs, and modeling
+            human motor behavior using reinforcement learning
+            in physics-based simulations.
+          </p>
 
-  <h2>Contact</h2>
-  <p>Academic and professional inquiries welcome.</p>
+          <p>
+            My primary research interests lie in
+            <b>3D computer vision</b> and
+            <b>reinforcement learning</b>,
+            with a focus on understanding and modeling
+            human movement and interaction.
+          </p>
+
+          <div class="row">
+            <div class="col-md-6">
+              <h3>📬 Contact</h3>
+              <ul class="ul-contact fa-ul">
+                <li><i class="fa-li fas fa-envelope"></i>
+                  <div class="description">
+                    <p class="course"><a href="mailto:eunseo8946@gmail.com">eunseo8946@gmail.com</a></p>
+                  </div>
+                </li>
+                <li><i class="fa-li fas fa-map-marker"></i>
+                  <div class="description">
+                    <p class="course">Seoul, Republic of Korea</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h3>🎓 Education</h3>
+              <ul class="ul-edu fa-ul">
+                <li><i class="fa-li fas fa-graduation-cap"></i>
+                  <div class="description">
+                    <p class="course">M.S. in Computer Science</p>
+                    <p class="institution">Yonsei University · Mar 2024 – Aug 2026</p>
+                  </div>
+                </li>
+                <li><i class="fa-li fas fa-graduation-cap"></i>
+                  <div class="description">
+                    <p class="course">B.S. in Computer Science</p>
+                    <p class="institution">Yonsei University · Mar 2019 – Feb 2024</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="home-section wg-blank" id="news" style="padding:20px 0">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>📢 News</h1>
+          <ul>
+            <li><b>[Aug 2026]</b> Graduated with an M.S. in Computer Science from Yonsei University.</li>
+            <li><b>[Jun 2026]</b> Co-authored a paper presented at the PhysHuman workshop at CVPR 2026.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="home-section wg-blank" id="activities" style="padding:20px 0">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>💼 Research &amp; Industry Experience</h1>
+          <ul class="exp-list">
+            <li class="exp-item"><img alt="Yonsei University logo" class="exp-logo" src="img/logos/yonsei.png" />
+              <div class="exp-body">
+                <div class="exp-org">Yonsei University · High-Performance HCI Lab</div>
+                <div class="exp-loc">Seoul, Republic of Korea</div>
+                <ul class="exp-roles">
+                  <li class="exp-role">
+                    <div class="exp-title">Graduate Researcher</div>
+                    <div class="exp-date">Mar 2024 – Aug 2026</div>
+                  </li>
+                </ul>
+                <div class="exp-desc">Conducted research on 3D human motion analysis using multimodal data and reinforcement learning-based modeling of human motor behavior in physics-based simulations.</div>
+              </div>
+            </li>
+            <li class="exp-item">
+              <img alt="YESLAB logo" class="exp-logo" src="img/logos/yeslab.svg" />
+              <div class="exp-body">
+                <div class="exp-org">YESLAB</div>
+                <div class="exp-loc">Seoul, Republic of Korea</div>
+                <ul class="exp-roles">
+                  <li class="exp-role">
+                    <div class="exp-title">Founding Team Member &amp; AI Developer</div>
+                    <div class="exp-date">Aug 2024 – Aug 2026</div>
+                  </li>
+                </ul>
+                <div class="exp-desc">Contributed to the founding and early development of YESLAB, including an LLM reporting module for T1 Esports Academy.</div>
+              </div>
+            </li>
+            <li class="exp-item"><img alt="Innoyard logo" class="exp-logo" src="img/logos/innoyard.webp" />
+              <div class="exp-body">
+                <div class="exp-org">Innoyard</div>
+                <div class="exp-loc">Seoul, Republic of Korea</div>
+                <ul class="exp-roles">
+                  <li class="exp-role">
+                    <div class="exp-title">Computer Vision Engineering Intern</div>
+                    <div class="exp-date">Jun 2021 – Feb 2022</div>
+                  </li>
+                </ul>
+                <div class="exp-desc">Developed an iOS LiDAR point-cloud acquisition pipeline with AI denoising and Core
+                  ML integration.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="home-section wg-blank" id="publications" style="padding:20px 0">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>📜 Publications</h1>
+          <div class="row">
+            <ul class="ul-papers">
+              <li class="pub-item">
+                <div class="pub-thumb"><img
+                    alt="Abstract placeholder for Point Clouds in the Frequency Domain: Color in Amplitude, Geometry in Phase"
+                    class="contain" loading="lazy" src="img/papers/freq-pointcloud.png" /></div>
+                <div class="description">
+                  <p class="title">Point Clouds in the Frequency Domain: Color in Amplitude, Geometry in Phase</p>
+                  <p class="authors"><span style="color:#626567">Donghyun Kim, Chanyoung Kim, Junhyeock Kim, <b>Eunseo
+                        Jeong</b>, Hyunah Ko, Youngjoong Kwon, Seong Jae Hwang</span></p>
+                  <p class="venue"><span style="color:#626567">Under Review, 2026</span></p>
+                </div>
+              </li>
+
+              <li class="pub-item">
+                <!-- Left: Video -->
+                <div class="pub-thumb">
+                  <video src="img/papers/noisy-poses.mp4" poster="img/papers/noisy-poses.jpg" autoplay loop muted
+                    playsinline aria-label="Noisy Poses research visualization">
+                  </video>
+                </div>
+
+                <!-- Right: Publication Information -->
+                <div class="description">
+                  <p class="title">
+                    How Noisy Poses Break Inverse Dynamics:
+                    Analysis and Mitigation for Video-Based
+                    Joint Torque Estimation
+                  </p>
+
+                  <p class="authors">
+                    <span style="color:#626567">
+                      Donghyun Kim, Chanyoung Kim,
+                      <b>Eunseo Jeong</b>,
+                      Youngjoong Kwon, Seong Jae Hwang
+                    </span>
+                  </p>
+
+                  <p class="venue">
+                    <span style="color:#626567">
+                      CVPRW 2026 (PhysHuman)
+                    </span>
+                  </p>
+
+                  <p class="resources">
+                    [
+                    <a href="https://arxiv.org/abs/2605.24776" target="_blank" rel="noopener">
+                      paper
+                    </a>
+                    ]
+                  </p>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="home-section wg-blank" id="academic-activities" style="padding:20px 0">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>🏛️ Scholarly Activities</h1>
+          <h3>Academic Service &amp; Teaching</h3>
+          <ul>
+            <li>
+              <b>Assistant to the Subcommittee Chairs — Computational Interaction, ACM CHI 2026</b> (2026)<br />
+              <a href="https://chi2026.acm.org/authors/papers/selecting-a-subcommittee/#computational_interaction"
+                target="_blank" rel="noopener">Official CHI 2026 committee listing ↗</a>
+            </li>
+            <li>
+              <b>Teaching Assistant — Artificial Intelligence Programming</b> (Spring 2024, Spring 2025)<br />
+              Yonsei University
+            </li>
+          </ul>
+          <h3>Academic Training</h3>
+          <ul>
+            <li>
+              <b>Two-Week Summer Program in AI and Data Science</b> (Jul – Aug 2024)<br />
+              University of Southern California (USC), Los Angeles, CA
+            </li>
+          </ul>
+
+          <!-- <h3>Technical Skills</h3>
+          <p><b>Programming:</b> Python, C/C++, Java, Swift<br /><b>Machine Learning:</b> PyTorch, Computer Vision,
+            Reinforcement Learning<br /><b>Data:</b> NumPy, pandas<br /><b>Simulation:</b> MuJoCo, MyoSuite</p> -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="home-section wg-blank" id="awards" style="padding:20px 0">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>🏆 Honors &amp; Awards</h1>
+          <ul>
+            <li><b>Grand Prize, Undergraduate Capstone Project</b> — Yonsei University (Jun 2023)</li>
+            <li><b>Academic Excellence Award</b> — Yonsei University (Spring 2022, Fall 2022)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script crossorigin="anonymous" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script crossorigin="anonymous" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q="
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
+  <script crossorigin="anonymous" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI="
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+  <script crossorigin="anonymous" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8="
+    src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script crossorigin="anonymous" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g="
+    src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"></script>
+  <script>const code_highlighting = false;</script>
+  <script>const isSiteThemeDark = false;</script>
+  <script>
+    const search_config = { "indexURI": "/index.json", "minLength": 1, "threshold": 0.3 };
+    const i18n = { "no_results": "No results found", "placeholder": "Search...", "results": "results found" };
+    const content_type = {
+      'post': "Posts",
+      'project': "Projects",
+      'publication': "Publications",
+      'talk': "Talks"
+    };
+  </script>
+  <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+  <script crossorigin="anonymous" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI="
+    src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js"></script>
+  <script crossorigin="anonymous" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U="
+    src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
+  <script src="js/academic.min.a8d7005002cb4a052fd6d721e83df9ba.js"></script>
+  <div class="container">
+    <footer class="site-footer">
+      <p class="powered-by">
+        <span aria-hidden="true" class="float-right">
+          <a class="back-to-top" href="#">
+            <span class="button_icon">
+              <i class="fas fa-chevron-up fa-2x"></i>
+            </span>
+          </a>
+        </span>
+      </p>
+    </footer>
+  </div>
+  <div class="modal fade" id="modal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Cite</h5>
+          <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <pre><code class="tex hljs"></code></pre>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+            <i class="fas fa-copy"></i> Copy
+          </a>
+          <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+            <i class="fas fa-download"></i> Download
+          </a>
+          <div id="modal-error"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>
-  
